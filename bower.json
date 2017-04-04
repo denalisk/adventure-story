@@ -1,0 +1,20 @@
+{
+  "name": "adventure-story",
+  "description": "",
+  "main": "",
+  "authors": [
+    "allie holcombe & sam kirsch"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
