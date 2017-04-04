@@ -5,14 +5,17 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Injectable()
 export class PlayerService {
+  players: FirebaseListObservable<any[]>;
 
-  constructor() { }
+  constructor(private angularFire: AngularFire) {
+    this.players = angularFire.database.list('players')
+  }
 
   getPlayer(){
     return PLAYERS[0];
   }
 
   savePlayer(newPlayer: Player){
-    PLAYERS.push(newPlayer);
+    this.players.push(newPlayer);
   }
 }

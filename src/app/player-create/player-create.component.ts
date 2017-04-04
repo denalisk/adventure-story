@@ -1,15 +1,18 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Player } from '../player.model';
+import { PlayerService } from '../player.service';
+import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
   selector: 'player-create',
   templateUrl: './player-create.component.html',
-  styleUrls: ['./player-create.component.css']
+  styleUrls: ['./player-create.component.css'],
+  providers: [PlayerService]
 })
 export class PlayerCreateComponent implements OnInit {
   @Output() playerSender= new EventEmitter();
 
-  constructor() { }
+  constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
   }
