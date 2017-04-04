@@ -1,1 +1,2 @@
-<player-create></player-create>
+<player-create (playerSender)="savePlayer($event)"></player-create>
+<h1 *ngIf="currentPlayer">Yer a wizerd, {{currentPlayer.name}}!!!</h1>
