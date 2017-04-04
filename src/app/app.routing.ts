@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     component: SuccessComponent
   },
   {
-    path: 'scenario/:id',
+    path: 'scenario',
     component: ScenarioComponent
   }
 ];

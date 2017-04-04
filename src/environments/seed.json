@@ -1,0 +1,16 @@
+{ "players": [],
+  "scenarios": [
+    {
+      "description": "You have found the first room. You are a wizard. Congratulations on your knowledge of mouse-computer interfaces! ;)",
+      "id": "1",
+      "optionDescription": "You should literally never be seeing this, what have you done?",
+      "optionArray": []
+    },
+    {
+      "description": "You're out of wizard bootcamp!",
+      "id": "2",
+      "optionDescription": "Leave wizard bootcamp? (Y/N)",
+      "optionArray": []
+    }
+  ]
+}
