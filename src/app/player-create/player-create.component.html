@@ -1,3 +1,18 @@
-<p>
-  player-create works!
-</p>
+<div class="form-group">
+  <label for="player-name">Your Wizard Name</label>
+  <input [(ngModel)]="playerName" type="text" name="player-name" placeholder="Larry">
+</div>
+
+<div class="hats">
+    <label *ngFor="let index of [1,2,3,4,5,6]">
+      <input type="radio" name="hatChoice" [(ngModel)]="hatChoice" [id]="idGenerator(index, 'hat')" [value]="idGenerator(index, 'hat')">
+      <img [src]="imageSourcer(index, 'hat')">
+    </label>
+</div>
+
+<div class="wands">
+    <label *ngFor="let index of [1,2,3,4,5,6]">
+      <input type="radio" name="wandChoice" [(ngModel)]="wandChoice" [id]="idGenerator(index, 'wand')" [value]="idGenerator(index, 'wand')">
+      <img [src]="imageSourcer(index, 'wand')">
+    </label>
+</div>
