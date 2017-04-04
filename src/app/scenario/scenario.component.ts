@@ -29,8 +29,8 @@ export class ScenarioComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((urlParam) => {
-      this.playerId = '-Kguazd8Vby1FRC63gvk';
-      this.scenarioId = '1';
+      this.playerId = (urlParam['playerId']);
+      this.scenarioId = (urlParam['scenarioId']);
       console.log(urlParam);
     });
     this.player = this.playerService.getPlayerById(this.playerId);

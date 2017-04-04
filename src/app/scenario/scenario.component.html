@@ -1,5 +1,4 @@
-<div class="jumbotron" *ngFor="let scenario of scenarios | async">
-  <h1>{{scenario.description}}</h1>
-</div>
+<h1>{{(player | async)?.name}}</h1>
+<h1>{{(scenario | async)?.description}}</h1>
 <h1>BUTTSSSSS</h1>
 <button type="button" (click)="logfunction()">asdasdasd</button>
