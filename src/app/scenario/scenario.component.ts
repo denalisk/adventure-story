@@ -35,10 +35,15 @@ export class ScenarioComponent implements OnInit {
     });
     this.player = this.playerService.getPlayerById(this.playerId);
     this.scenario = this.scenarioService.getScenarioById(this.scenarioId);
-  }
-
-  public logfunction(): void {
     console.log(this.scenario);
   }
 
+  public getOptionDescription(option: string) {
+    console.log(this.scenarioService.getScenarioById(option).optionDescription)
+    return this.scenarioService.getScenarioById(option).optionDescription;
+  }
+
+  public logfunction(): void {
+    this.scenarioService.getOptions(this.scenarioId);
+  }
 }

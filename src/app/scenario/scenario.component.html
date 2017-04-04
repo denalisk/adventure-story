@@ -1,4 +1,7 @@
 <h1>{{(player | async)?.name}}</h1>
 <h1>{{(scenario | async)?.description}}</h1>
-<h1>BUTTSSSSS</h1>
-<button type="button" (click)="logfunction()">asdasdasd</button>
+<div>
+  <div *ngFor="let option of (scenario | async)?.options">
+    <button type="button" [innerHTML]="getOptionDescription(option)"></button>
+  </div>
+</div>

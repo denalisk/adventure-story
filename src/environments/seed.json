@@ -2,15 +2,23 @@
   "scenarios": [
     {
       "description": "You have found the first room. You are a wizard. Congratulations on your knowledge of mouse-computer interfaces! ;)",
-      "id": "1",
       "optionDescription": "You should literally never be seeing this, what have you done?",
-      "optionArray": []
+      "options": ["2", "3"]
     },
     {
       "description": "You're out of wizard bootcamp!",
-      "id": "2",
       "optionDescription": "Leave wizard bootcamp? (Y/N)",
-      "optionArray": []
+      "options": []
+    },
+    {
+      "description": "This is the right fork",
+      "optionDescription": "You can go right",
+      "options": ["1"]
+    },
+    {
+      "description": "This is the left fork",
+      "optionDescription": "You can go left",
+      "options": ["1"]
     }
   ]
 }

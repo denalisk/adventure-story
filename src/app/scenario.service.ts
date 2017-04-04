@@ -10,6 +10,11 @@ export class ScenarioService {
   }
 
   public getScenarioById(scenarioId: string): any {
+    console.log(this.angularFire.database.object('scenarios/' + scenarioId));
     return this.angularFire.database.object('scenarios/' + scenarioId);
+  }
+
+  public getOptions(scenarioId: string): any {
+    return "hello";
   }
 }

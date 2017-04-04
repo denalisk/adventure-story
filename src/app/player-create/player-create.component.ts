@@ -36,9 +36,6 @@ export class PlayerCreateComponent implements OnInit {
     } else {
       let newPlayer = new Player(this.playerName, this.hatChoice, this.wandChoice, 'Vanilla');
       this.playerService.savePlayer(newPlayer).then(results => this.router.navigate(['scenario', results.key, '0']));
-      // this.router.navigate(['scenario', this.playerService.savePlayer(newPlayer), '0']);
-      // var playerKey = this.playerService.savePlayer(newPlayer);
-      // console.log("From within clickSavePlayer: " + playerKey);
     }
   }
 

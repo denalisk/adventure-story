@@ -11,19 +11,9 @@ export class PlayerService {
     this.players = angularFire.database.list('players')
   }
 
-  getPlayer(){
-    return PLAYERS[0];
-  }
-
   savePlayer(newPlayer: Player){
     var playerKey = 1;
-    // this.players.push(newPlayer).then((results) => {this.returnPlayerKey(results.key);});
     return this.players.push(newPlayer);
-  }
-
-  returnPlayerKey(newKey: string) {
-    console.log(newKey);
-    return newKey;
   }
 
   getPlayerById(playerId: string): any {
