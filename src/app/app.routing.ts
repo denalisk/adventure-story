@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     component: SuccessComponent
   },
   {
-    path: 'scenario',
+    path: 'scenario/:playerId/:scenarioId',
     component: ScenarioComponent
   }
 ];

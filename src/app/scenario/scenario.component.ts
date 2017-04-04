@@ -1,26 +1,44 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
+import { Location } from '@angular/common';
+import { ActivatedRoute, Params} from '@angular/router';
+
 import { Scenario } from '../scenario.model';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Player } from '../player.model';
 import { ScenarioService } from '../scenario.service';
+import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-scenario',
   templateUrl: './scenario.component.html',
   styleUrls: ['./scenario.component.css'],
-  providers: [ScenarioService]
+  providers: [ScenarioService, PlayerService]
 })
 export class ScenarioComponent implements OnInit {
-  public scenarios: FirebaseListObservable<any[]>;
+  public scenario: FirebaseObjectObservable<any>;
+  public player: FirebaseObjectObservable<any>;
 
-  constructor(public scenarioService: ScenarioService) { }
+  playerId: string;
+  scenarioId: string;
+
+  constructor(public scenarioService: ScenarioService,
+              public playerService: PlayerService,
+              public location: Location,
+              public route: ActivatedRoute
+            ) { }
 
   ngOnInit() {
-    console.log(this.scenarios);
-    this.scenarios = this.scenarioService.getScenarios();
+    this.route.params.forEach((urlParam) => {
+      this.playerId = '-Kguazd8Vby1FRC63gvk';
+      this.scenarioId = '1';
+      console.log(urlParam);
+    });
+    this.player = this.playerService.getPlayerById(this.playerId);
+    this.scenario = this.scenarioService.getScenarioById(this.scenarioId);
   }
 
   public logfunction(): void {
-    console.log(this.scenarios);
+    console.log(this.scenario);
   }
 
 }

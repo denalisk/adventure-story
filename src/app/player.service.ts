@@ -16,6 +16,17 @@ export class PlayerService {
   }
 
   savePlayer(newPlayer: Player){
-    this.players.push(newPlayer);
+    var playerKey = 1;
+    // this.players.push(newPlayer).then((results) => {this.returnPlayerKey(results.key);});
+    return this.players.push(newPlayer);
+  }
+
+  returnPlayerKey(newKey: string) {
+    console.log(newKey);
+    return newKey;
+  }
+
+  getPlayerById(playerId: string): any {
+    return this.angularFire.database.object('players/' + playerId);
   }
 }

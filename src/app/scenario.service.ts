@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Scenario } from './scenario.model';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 @Injectable()
 export class ScenarioService {
-  scenarios: FirebaseListObservable<any[]>;
+  scenario: FirebaseObjectObservable<any>;
   constructor(private angularFire: AngularFire) {
-    this.scenarios = angularFire.database.list('scenarios');
+    this.scenario = angularFire.database.object('scenarios');
   }
 
-  getScenarios() {
-    return this.scenarios;
+  public getScenarioById(scenarioId: string): any {
+    return this.angularFire.database.object('scenarios/' + scenarioId);
   }
 }

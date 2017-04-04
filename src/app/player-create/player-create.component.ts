@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Player } from '../player.model';
 import { PlayerService } from '../player.service';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'player-create',
@@ -12,7 +13,7 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 export class PlayerCreateComponent implements OnInit {
   @Output() playerSender= new EventEmitter();
 
-  constructor(private playerService: PlayerService) { }
+  constructor(private playerService: PlayerService, public router: Router) { }
 
   ngOnInit() {
   }
@@ -29,13 +30,18 @@ export class PlayerCreateComponent implements OnInit {
     let returnString: string = itemType + '_' + index;
     return returnString;
   }
-  clickSavePlayer(): void {
+  clickSavePlayer() {
     if (!(this.playerName) || !(this.hatChoice) || !(this.wandChoice)) {
       console.log("You're a fool!  Finish the form");
     } else {
       let newPlayer = new Player(this.playerName, this.hatChoice, this.wandChoice, 'Vanilla');
-      this.playerSender.emit(newPlayer);
+      this.playerService.savePlayer(newPlayer).then(results => this.router.navigate(['scenario', results.key, '0']));
+      // this.router.navigate(['scenario', this.playerService.savePlayer(newPlayer), '0']);
+      // var playerKey = this.playerService.savePlayer(newPlayer);
+      // console.log("From within clickSavePlayer: " + playerKey);
     }
   }
+
+
 
 }
